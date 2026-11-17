@@ -1,0 +1,52 @@
+@import "./assets/styles/tokens/color.css";
+@import "./assets/styles/tokens/markup.css";
+@import "./assets/styles/tokens/text-style.css";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+:root {
+  background-color: var(--background-page-filled);
+  color: var(--foreground-default);
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif;
+}
+
+/* === Select (dropdown) === */
+.select {
+  position: relative;
+  display: inline-flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-3);
+}
+.select__control {
+  height: 56px;
+  box-sizing: border-box;
+  border-radius: var(--border-radius-l);
+  padding-block: var(--padding-s);
+  padding-inline: var(--padding-m);
+  border: 2px solid var(--border-soft);
+  background-color: var(--background-surface1);
+  font-family: inherit;
+  font-size: var(--body-size_m);
+  color: var(--foreground-default);
+  appearance: none;
+  cursor: pointer;
+}
+.select__control:focus {
+  border-color: var(--accent-default);
+  outline: none;
+}
+.select__icon {
+  position: absolute;
+  right: 12px;
+  top: 50%;
+  transform: translateY(-50%);
+  pointer-events: none;
+  color: var(--foreground-muted);
+}

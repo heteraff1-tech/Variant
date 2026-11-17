@@ -1,0 +1,555 @@
+/* ====================================================
+   Конструктор теста — стили страницы создания теста
+   ==================================================== */
+
+.container {
+  display: flex;
+  height: 100vh;
+  gap: var(--gap-horizontal-5);
+  background-color: var(--background-page-filled);
+  flex: 1;
+}
+
+/* ---------- Контент ---------- */
+.content {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  gap: var(--gap-vertical-7);
+  margin-top: 44px;
+  overflow-y: auto;
+  padding-bottom: 40px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: end;
+}
+
+/* ---------- Конструктор вопросов ---------- */
+.designer {
+  display: flex;
+  flex-direction: column;
+  gap: 40px;
+  flex: 1;
+}
+
+.question {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-5);
+  padding: var(--padding-l);
+  background-color: var(--background-surface1);
+  border-radius: var(--border-radius-l);
+}
+
+.question-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 12px;
+}
+
+.question-header-controls {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+}
+
+.information {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-7);
+}
+
+.description {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-4);
+}
+
+.answers {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-5);
+}
+
+.answer {
+  display: flex;
+  align-items: end;
+  gap: var(--gap-horizontal-5);
+}
+
+.add-answer {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-4);
+}
+
+.check {
+  display: flex;
+  gap: var(--gap-horizontal-3);
+  align-items: start;
+}
+
+.delete {
+  width: 32px;
+  height: 52px;
+  cursor: pointer;
+}
+
+/* ---------- Выбор типа вопроса ---------- */
+.type-select {
+  padding: 6px 10px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-surface2);
+  color: var(--text-primary);
+  font-size: 13px;
+  cursor: pointer;
+  min-width: 200px;
+  transition: border-color 0.2s;
+}
+.type-select:hover {
+  border-color: var(--accent-default);
+}
+.type-select:focus {
+  outline: none;
+  border-color: var(--accent-default);
+}
+
+/* ---------- Кнопка удаления вопроса ---------- */
+.delete-question-btn {
+  background: none;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  padding: 6px 12px;
+  color: var(--text-secondary);
+  cursor: pointer;
+  font-size: 13px;
+  transition: 0.2s;
+}
+.delete-question-btn:hover {
+  background-color: var(--background-surface2);
+  color: var(--text-primary);
+}
+
+/* ---------- Открытый ответ ---------- */
+.open-answer-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+/* ---------- Соответствие (matching) ---------- */
+.matching-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.matching-header {
+  display: grid;
+  grid-template-columns: 1fr 24px 1fr 28px;
+  gap: 10px;
+  padding: 0 4px;
+}
+
+.matching-col-label {
+  font-size: 13px;
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
+.matching-pair {
+  display: grid;
+  grid-template-columns: 1fr auto 1fr auto;
+  gap: 10px;
+  align-items: end;
+}
+
+.matching-arrow {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-tertiary);
+  font-size: 18px;
+  padding-bottom: 10px;
+}
+
+/* ---------- Последовательность (ordering) ---------- */
+.ordering-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.ordering-item {
+  display: flex;
+  align-items: end;
+  gap: 10px;
+}
+
+.ordering-number {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 28px;
+  height: 28px;
+  border-radius: 50%;
+  background-color: var(--accent-default);
+  color: #fff;
+  font-size: 13px;
+  font-weight: 600;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+
+.ordering-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 2px;
+  margin-bottom: 4px;
+}
+
+.ordering-move-btn {
+  background: none;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  padding: 2px 6px;
+  cursor: pointer;
+  font-size: 10px;
+  color: var(--text-secondary);
+  transition: 0.15s;
+  line-height: 1;
+}
+.ordering-move-btn:hover:not(:disabled) {
+  background-color: var(--background-surface2);
+  color: var(--text-primary);
+}
+.ordering-move-btn:disabled {
+  opacity: 0.3;
+  cursor: not-allowed;
+}
+
+/* ---------- Кнопка удаления элемента ---------- */
+.remove-item-btn {
+  background: none;
+  border: 1px solid var(--border-soft);
+  border-radius: 4px;
+  width: 28px;
+  height: 28px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  color: var(--text-secondary);
+  font-size: 14px;
+  transition: 0.15s;
+  margin-bottom: 8px;
+  flex-shrink: 0;
+}
+.remove-item-btn:hover {
+  background-color: var(--background-surface2);
+  color: var(--text-primary);
+}
+
+/* ---------- Заполнение пропусков (fill_blanks) ---------- */
+.fill-blanks-editor {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.fill-blanks-textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 12px 14px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-surface2);
+  color: var(--text-primary);
+  font-size: 14px;
+  font-family: inherit;
+  resize: vertical;
+  min-height: 80px;
+  transition: border-color 0.2s;
+}
+.fill-blanks-textarea:focus {
+  outline: none;
+  border-color: var(--accent-default);
+}
+.fill-blanks-textarea::placeholder {
+  color: var(--text-tertiary);
+}
+
+.fill-blanks-preview {
+  padding: 12px 14px;
+  background-color: var(--background-surface2);
+  border-radius: var(--border-radius-s);
+  border: 1px dashed var(--border-soft);
+  font-size: 14px;
+  line-height: 1.7;
+  color: var(--text-primary);
+}
+
+.fill-blanks-preview-label {
+  display: block;
+  font-size: 12px;
+  color: var(--text-secondary);
+  margin-bottom: 6px;
+  font-weight: 500;
+}
+
+:deep(.blank-preview) {
+  display: inline-block;
+  min-width: 80px;
+  padding: 2px 10px;
+  margin: 0 2px;
+  border-bottom: 2px solid var(--accent-default);
+  background-color: rgba(var(--accent-default-rgb, 99, 102, 241), 0.08);
+  border-radius: 4px 4px 0 0;
+  text-align: center;
+  font-weight: 500;
+  color: var(--accent-default);
+}
+
+/* ---------- Подсказки ---------- */
+.hint-text {
+  font-size: 12px;
+  color: var(--text-tertiary);
+  line-height: 1.4;
+}
+
+/* ---------- Перемешивание вопросов ---------- */
+.shuffle-toggle {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  grid-column: span 2;
+}
+
+.shuffle-label {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-primary);
+  user-select: none;
+}
+
+.shuffle-label input[type="checkbox"] {
+  width: 16px;
+  height: 16px;
+  cursor: pointer;
+  accent-color: var(--accent-default);
+}
+
+/* ---------- Секция добавления вопроса ---------- */
+.add-question-section {
+  display: flex;
+  gap: 10px;
+  align-items: center;
+}
+
+/* ---------- Панель настроек ---------- */
+.setting {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-5);
+  padding: var(--padding-l);
+  background-color: var(--background-surface1);
+  border-radius: var(--border-radius-l);
+  width: 504px;
+  flex-shrink: 0;
+  overflow-y: auto;
+  max-height: 100vh;
+}
+
+.setting-test {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-7);
+  background-color: var(--background-surface2);
+  padding: var(--padding-m);
+  border-radius: var(--border-radius-l);
+}
+
+.inputs {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 16px;
+}
+
+.info-text {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-7);
+  background-color: var(--background-surface2);
+  padding: var(--padding-m);
+  border-radius: var(--border-radius-l);
+}
+
+.content-test {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-5);
+}
+
+/* ---------- Обложка теста ---------- */
+.intro-img {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-vertical-7);
+  background-color: var(--background-surface2);
+  padding: var(--padding-m);
+  border-radius: var(--border-radius-l);
+}
+
+.input-add {
+  width: 100%;
+  box-sizing: border-box;
+  height: 140px;
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-surface1);
+  border: 2px solid var(--border-soft);
+  padding: var(--padding-s);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: 0.3s;
+}
+.input-add:hover {
+  border: 1px solid var(--accent-hover);
+  background-color: var(--accent-container-hover);
+}
+.input-add:hover > svg path {
+  fill: var(--accent-default);
+}
+
+/* ---------- Превью изображения ---------- */
+.add-img {
+  display: flex;
+  gap: 16px;
+}
+.add-img-container {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.info-add-img {
+  width: 200px;
+  height: 100px;
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  border-radius: var(--border-radius-s);
+}
+.img-controls {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+/* ---------- Выбор предмета / групп ---------- */
+.subject-selection,
+.group-selection {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  grid-column: span 2;
+}
+
+.subject-select {
+  width: 100%;
+  padding: 8px 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-surface1);
+  color: var(--text-primary);
+  font-size: 14px;
+  cursor: pointer;
+}
+
+/* Мультиселект групп */
+.custom-multiselect {
+  position: relative;
+}
+.multiselect-trigger {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 8px 12px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  background-color: var(--background-surface1);
+  cursor: pointer;
+  user-select: none;
+}
+.multiselect-trigger .arrow {
+  font-size: 10px;
+  transition: transform 0.2s;
+}
+.multiselect-trigger .arrow.open {
+  transform: rotate(180deg);
+}
+.multiselect-trigger .placeholder {
+  color: var(--text-tertiary);
+  font-size: 14px;
+}
+.multiselect-trigger .selected-text {
+  color: var(--text-primary);
+  font-size: 14px;
+}
+.multiselect-dropdown {
+  position: absolute;
+  top: calc(100% + 4px);
+  left: 0;
+  right: 0;
+  background-color: var(--background-surface1);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  z-index: 50;
+  max-height: 180px;
+  overflow-y: auto;
+}
+.multiselect-option {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 8px 12px;
+  cursor: pointer;
+  font-size: 14px;
+  color: var(--text-primary);
+  transition: 0.15s;
+}
+.multiselect-option:hover {
+  background-color: var(--background-surface2);
+}
+
+.no-subject,
+.no-groups,
+.loading {
+  font-size: 13px;
+  color: var(--text-tertiary);
+  padding: 4px 0;
+}
+
+/* ---------- Вспомогательные ---------- */
+.add-text {
+  font-size: 13px;
+  color: var(--accent-default);
+  text-decoration: none;
+  cursor: pointer;
+}
+.add-text:hover {
+  text-decoration: underline;
+}
+.add-text.delete-btn {
+  color: var(--text-secondary);
+}

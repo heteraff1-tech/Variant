@@ -1,0 +1,438 @@
+/* =============================================
+   Student Journal Page Styles
+   Follows design tokens from color.css & markup.css
+   ============================================= */
+
+/* ---- Page Layout ---- */
+.journal-page {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-5);
+}
+
+.journal-page__header {
+  display: flex;
+  align-items: baseline;
+  gap: var(--gap-horizontal-5);
+}
+
+/* ---- Month Navigation ---- */
+.journal-nav {
+  display: flex;
+  align-items: center;
+  gap: var(--gap-horizontal-5);
+  width: fit-content;
+}
+
+.journal-nav__btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 32px;
+  height: 32px;
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-s);
+  background: var(--background-surface1);
+  color: var(--foreground-soft);
+  font-size: 20px;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  line-height: 1;
+}
+
+.journal-nav__btn:hover {
+  background: var(--accent-container-default);
+  border-color: var(--accent-muted);
+  color: var(--accent-default);
+}
+
+.journal-nav__month {
+  min-width: 180px;
+  text-align: center;
+  color: var(--foreground-default);
+  font-weight: 600;
+}
+
+/* ---- Empty State ---- */
+.journal-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: var(--spacing-3);
+  padding: var(--spacing-10) var(--spacing-4);
+  background: var(--background-surface1);
+  border-radius: var(--border-radius-l);
+  border: 1px solid var(--border-muted);
+  text-align: center;
+}
+
+.journal-empty__icon {
+  font-size: 48px;
+  line-height: 1;
+}
+
+/* ---- Table Wrapper ---- */
+.journal-wrapper {
+  background: var(--background-surface1);
+  border-radius: var(--border-radius-l);
+  border: 1px solid var(--border-muted);
+  overflow: hidden;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.06);
+}
+
+.table-scroll {
+  overflow-x: auto;
+  width: 100%;
+}
+
+/* ---- Table ---- */
+.journal-table {
+  width: 100%;
+  border-collapse: collapse;
+  table-layout: fixed;
+}
+
+.journal-table th,
+.journal-table td {
+  border: 1px solid var(--border-muted);
+  padding: 0;
+  height: 40px;
+  overflow: hidden;
+}
+
+/* ---- Header ---- */
+.journal-table thead th {
+  background: var(--background-surface2);
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+/* ---- Subject column ---- */
+.col-subject {
+  width: 180px;
+  min-width: 180px;
+  max-width: 180px;
+  padding: 0 var(--padding-m);
+  text-align: left;
+  background: var(--background-surface2);
+  border-right: 2px solid var(--border-soft);
+}
+
+.subject-name {
+  display: block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: var(--foreground-default);
+  font-weight: 500;
+}
+
+/* ---- Sticky column ---- */
+.sticky-col {
+  position: sticky;
+  left: 0;
+  z-index: 20;
+}
+
+thead .sticky-col {
+  z-index: 30;
+}
+
+/* ---- Date columns ---- */
+.col-date {
+  min-width: 36px;
+}
+
+.col-date--weekend {
+  background: var(--background-surface3);
+}
+
+.date-header {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 2px;
+  gap: 1px;
+}
+
+.day-num {
+  font-weight: 700;
+  font-size: 12px;
+  color: var(--foreground-default);
+  font-family: 'Inter', sans-serif;
+}
+
+.day-name {
+  font-size: 9px;
+  color: var(--foreground-muted);
+  text-transform: uppercase;
+  font-family: 'Inter', sans-serif;
+}
+
+/* ---- Row ---- */
+.journal-row:nth-child(even) .cell-td {
+  background: var(--background-surface2);
+}
+
+/* ---- Cell td (container) ---- */
+.cell-td {
+  padding: 0;
+  background: var(--background-surface1);
+}
+
+.cell-td--weekend {
+  background: var(--background-surface3) !important;
+}
+
+/* ---- Grade cell (displayed value) ---- */
+.grade-cell {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 13px;
+  font-weight: 600;
+  font-family: 'Inter', sans-serif;
+  min-height: 40px;
+  transition: background 0.12s ease;
+  cursor: default;
+  color: var(--foreground-default);
+}
+
+.grade-cell--empty {
+  /* пусто */
+}
+
+/* Оценка за тест — кликабельная */
+.grade-cell--test {
+  background: linear-gradient(135deg, var(--accent-container-soft) 0%, var(--accent-container-default) 100%);
+  color: var(--accent-default);
+  cursor: pointer;
+}
+
+.grade-cell--test:hover {
+  background: linear-gradient(135deg, var(--accent-container-default) 0%, var(--accent-container-hover) 100%);
+}
+
+/* Цвета оценок */
+.grade-cell.grade--good {
+  color: var(--success-default);
+}
+
+.grade-cell.grade--ok {
+  color: var(--warning-hover);
+}
+
+.grade-cell.grade--bad,
+.grade-cell--critical {
+  color: var(--error-default) !important;
+}
+
+.grade-cell.grade--special {
+  color: var(--error-default);
+}
+
+/* ---- Average column ---- */
+.col-avg {
+  width: 70px;
+  min-width: 70px;
+  max-width: 70px;
+  text-align: center;
+  background: var(--accent-container-soft);
+  border-left: 2px solid var(--border-soft);
+}
+
+thead .col-avg {
+  background: var(--accent-container-default);
+  font-size: 10px;
+  font-weight: 700;
+  color: var(--accent-default);
+  text-transform: uppercase;
+  letter-spacing: 0.3px;
+  font-family: 'Inter', sans-serif;
+}
+
+.avg-value {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  font-size: 13px;
+  font-weight: 700;
+  font-family: 'Inter', sans-serif;
+  color: var(--foreground-default);
+  min-height: 40px;
+}
+
+.avg-value--good {
+  color: var(--success-default);
+}
+
+.avg-value--bad {
+  color: var(--error-default);
+}
+
+.avg-value--none {
+  color: var(--foreground-muted);
+  font-weight: 400;
+}
+
+/* =============================================
+   Popup Overlay & Modal
+   ============================================= */
+.popup-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(16, 24, 40, 0.4);
+  backdrop-filter: blur(4px);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.15s ease;
+}
+
+.test-popup {
+  background: var(--background-surface1);
+  border-radius: var(--border-radius-xl);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.18);
+  width: 360px;
+  max-width: 90vw;
+  overflow: hidden;
+  animation: scaleIn 0.2s ease;
+  border: 1px solid var(--border-muted);
+}
+
+.test-popup__header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--gap-horizontal-5);
+  padding: var(--padding-m) var(--padding-l);
+  background: linear-gradient(135deg, var(--accent-default) 0%, var(--info-default) 100%);
+  color: var(--accent-on-accent);
+}
+
+.test-popup__title {
+  flex: 1;
+  color: #fff;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  font-size: 15px;
+}
+
+.test-popup__close {
+  background: rgba(255, 255, 255, 0.2);
+  border: none;
+  color: #fff;
+  width: 28px;
+  height: 28px;
+  border-radius: var(--border-radius-s);
+  font-size: 18px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.15s;
+  flex-shrink: 0;
+  line-height: 1;
+}
+
+.test-popup__close:hover {
+  background: rgba(255, 255, 255, 0.35);
+}
+
+.test-popup__body {
+  padding: var(--padding-l);
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-3);
+}
+
+.popup-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--padding-s) 0;
+  border-bottom: 1px solid var(--border-muted);
+}
+
+.popup-row:last-child {
+  border-bottom: none;
+}
+
+.popup-row__label {
+  color: var(--foreground-muted);
+}
+
+.popup-row__value {
+  color: var(--foreground-default);
+  font-weight: 600;
+}
+
+/* ---- Grade badge in popup ---- */
+.grade-badge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: var(--border-radius-m);
+  font-size: 16px;
+  font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+}
+
+.badge--good {
+  background: var(--success-container-default);
+  color: var(--success-default);
+}
+
+.badge--ok {
+  background: var(--warning-container-default);
+  color: var(--warning-hover);
+}
+
+.badge--bad {
+  background: var(--error-container-default);
+  color: var(--error-default);
+}
+
+.test-popup__footer {
+  padding: 0 var(--padding-l) var(--padding-l);
+}
+
+.btn-close-popup {
+  width: 100%;
+  padding: var(--padding-s) var(--padding-m);
+  border: 1px solid var(--border-soft);
+  border-radius: var(--border-radius-m);
+  background: var(--background-surface2);
+  color: var(--foreground-soft);
+  cursor: pointer;
+  transition: all 0.15s ease;
+  font-family: 'Inter', sans-serif;
+}
+
+.btn-close-popup:hover {
+  background: var(--background-surface3);
+  color: var(--foreground-default);
+}
+
+/* =============================================
+   Animations
+   ============================================= */
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+
+@keyframes scaleIn {
+  from { opacity: 0; transform: scale(0.92); }
+  to   { opacity: 1; transform: scale(1); }
+}
